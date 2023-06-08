@@ -7,15 +7,15 @@ module.exports = async (request, response, next) => {
     console.log('-----------',token);
 
     //check if the token matches the supposed origin
-    const decodedToken = await jwt.verify(token, "RANDOM-TOKEN");
+    const decodedToken =  jwt.verify(token, "RANDOM-TOKEN");
 
     // retrieve the user details of the logged in user
-    const user = await decodedToken;
+    const user = decodedToken;
 
-    
+    console.log(user);
 
     // pass the the user down to the endpoints here
-    request.user = user;
+    request.user = user; // {id, email}
 
     // pass down functionality to the endpoint
     next();

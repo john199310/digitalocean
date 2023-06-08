@@ -236,6 +236,8 @@ router.post("/login", (req, res, next) => {
 });
  // free endpoint
 router.get("/free-endpoint",auth, (req, res, next) => {
+    console.log('request .user ===> ', request.user)
+    return res.status(400)
     res.json({ message: "You are free to access me anytime" });
     next();
 });
